@@ -32,8 +32,7 @@ public static class MappingExtensions
         return flag?.Trim()?.ToUpperInvariant() switch
         {
             "Y" => "Yes",
-            "N" => "No",
-            _ => string.Empty
+            _ => "No"
         };
     }
 }

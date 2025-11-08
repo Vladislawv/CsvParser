@@ -15,5 +15,7 @@ public sealed class TripCsvDtoMap : ClassMap<Trip>
         Map(m => m.StoreAndForwardFlag).Name("store_and_fwd_flag");
         Map(m => m.FareAmount).Name("fare_amount");
         Map(m => m.TipAmount).Name("tip_amount");
+        Map(m => m.PickUpLocationId).Name("PULocationID");
+        Map(m => m.DropOffLocationId).Name("DOLocationID");
     }
 }

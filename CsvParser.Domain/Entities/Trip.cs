@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace CsvParser.Domain.Entities;
 
@@ -33,4 +34,23 @@ public class Trip
 
     [Required]
     public decimal TipAmount { get; set; }
+
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("Trip {");
+        sb.AppendLine($"  {nameof(Id)}: {Id}");
+        sb.AppendLine($"  {nameof(PickupTime)}: {PickupTime}");
+        sb.AppendLine($"  {nameof(DropoffTime)}: {DropoffTime}");
+        sb.AppendLine($"  {nameof(PassengerCount)}: {PassengerCount}");
+        sb.AppendLine($"  {nameof(Distance)}: {Distance}");
+        sb.AppendLine($"  {nameof(StoreAndForwardFlag)}: {StoreAndForwardFlag}");
+        sb.AppendLine($"  {nameof(PickUpLocationId)}: {PickUpLocationId}");
+        sb.AppendLine($"  {nameof(DropOffLocationId)}: {DropOffLocationId}");
+        sb.AppendLine($"  {nameof(FareAmount)}: {FareAmount}");
+        sb.AppendLine($"  {nameof(TipAmount)}: {TipAmount}");
+        sb.Append('}');
+
+        return sb.ToString();
+    }
 }

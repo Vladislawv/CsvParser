@@ -10,10 +10,10 @@ namespace CsvParser.Application.Services;
 public class TripService(IFileService fileService, ITripRepository repository, ITripDataSource dataSource) 
     : ITripService
 {
+    private const string DuplicatesFileName = "duplicates.csv";
+    
     public async Task ProcessCsvFileAsync(string path)
     {
-        Console.WriteLine($"{nameof(ProcessCsvFileAsync)} started");
-
         var trips = fileService.ReadStreamAsync<Trip>(path);
         var (uniqueTripCsvDto, duplicateTripCsvDto) = await FilterDuplicatesAsync(trips);
 
@@ -22,12 +22,10 @@ public class TripService(IFileService fileService, ITripRepository repository, I
         
         if (duplicateTripCsvDto.Count != 0)
         {
-            var duplicatesFileName = "duplicates.csv";
-            await fileService.WriteRangeAsync(duplicatesFileName, duplicateTripCsvDto);
-            Console.WriteLine($"All duplicated records have been saved to the file {duplicatesFileName}");
+            Console.WriteLine("Started saving duplicated records");
+            await fileService.WriteRangeAsync(DuplicatesFileName, duplicateTripCsvDto);
+            Console.WriteLine($"All duplicated records have been saved to the file {DuplicatesFileName}");
         }
-
-        Console.WriteLine($"{nameof(ProcessCsvFileAsync)} finished successfully");
     }
 
     public async Task<short> GetPickUpLocationIdByHighestAverageTipAsync()
