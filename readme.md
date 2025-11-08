@@ -56,9 +56,9 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Password123" -p 1433:14
 
 ### 4. Navigate to the CsvParser\CsvParser.ConsoleApplication\bin\Debug\net9.0\
 
-### 5. Paste sample-cab-data.csv
+### 5. Paste sample-cab-data.csv here
 
-### 6. Run execution file CsvParser\CsvParser.ConsoleApplication\bin\Debug\net9.0\CsvParser.ConsoleApplication
+### 6. Run execution file CsvParser.ConsoleApplication.exe
 
 ## Testing
 
