@@ -54,7 +54,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Password123" -p 1433:14
 
 ### 3. Download source code from GitHub
 
-### 4. Navigate to the DCsvParser\CsvParser.ConsoleApplication\bin\Debug\net9.0\
+### 4. Navigate to the CsvParser\CsvParser.ConsoleApplication\bin\Debug\net9.0\
 
 ### 5. Paste sample-cab-data.csv
 
